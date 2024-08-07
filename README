@@ -1,0 +1,66 @@
+VISAN RARES STEFAN - 312CC
+
+Markov is coming:
+    In functia parse_labyrinth am citit matricea codificata element cu element.
+    In functia get_adjacency_matrix construiesc matricea de adiacenta pentru
+    lantul lui Markov. Parcurg matricea Labyrinth element cu element si verific
+    fiecare bit al starii codificate. Daca bitul este 0 inseamna ca exista
+    adiacenta intre starile vecine. De fiecare data calculez starea in care
+    ar trebui sa treaca daca exista adiacenta. Daca starea viitoare nu este una
+    dintre cele din matrice, fac adiacenta intre starea curenta si starea de
+    WIN sau LOSE in functie de caz. Daca starea viitoare este in matrice,
+    marchez adiacenta dintre stari.
+    In functia get_link_matrix calulez probabilitatea conform cerintei,
+    numarand intai cate elemente de 1 se gasesc pe o linie si apoi impartind
+    aceste elemente la numarul elem de 1.
+    In functia get_Jacobi_parameters extrag variabilele necesare pentru iteratia
+    jacobi din matricea de legaturi. Matricea G contine starile in afara de cele
+    WIN LOSE, iar vectorul c contine coloana starii de WIN.
+    In functia parse_iterative execut Jacobi cu variabilele extrase anterior,
+    pana cand se fac numarul maxim de pasi sau eroarea devine mai mica decat
+    cea tolerata.
+    In functia heuristic_greedy se afla algoritmul euristic din cerinta. Am
+    adaugat un vector pentru a marca starile vecine nevizitate pentru a sti
+    ce stari nu am parcurs inca.
+    In functia decode_path decodific starile, afland cu ajutorul impartirii
+    cu numarul coloanelor indicii din matrice.
+
+Linear regression:
+    In functia parse_data_set_file citesc din fisier datele. Deoarece nu stiu
+    daca citesc un numar sau un string, citesc initial intr un auxiliar ca
+    numar, iar daca dupa citire variabila ramane goala, inseamna ca trebuia sa
+    citesc un string. Construiesc matricea initiala.
+    In functia prepare_for_regression transform toate stringurile in numere
+    conform indicatiilor din cerinta.
+    In functia linear_regression_cost_function calculez eroarea conform
+    formulei din cerinta. Intai calculez vectorul h, apoi aplic formula.
+    In functia gradient_descent calculez vectorul theta cu ajutorul
+    formulei din enunt. Deoarece matricea are elemente reale, este necesar
+    un cast double tuturor pentru a putea face inmultirea. La final adaug si
+    theta0 in vector ca prim element. Gradientul se calculeaza de mai multe
+    ori pana cand se ating nr maxim de iteri sau eroarea devine mai mica decat
+    cea tolerata.
+    In functia normal_equation procedez asemanator. Este necesara verificarea
+    ca matricea sa fie pozitiv definita. Daca nu este, vectorul theta este plin
+    de 0 si nu se mai face nicio iteratie.
+    In functia lasso_regression_cost_function calculez eroarea aplicand
+    formula din cerinta.
+    In functia ridge_regression_cost_function procedez asemanator.
+
+Mnist 101:
+    In functia load_dataset incarc datasetul si setez exemplele de training si de
+    test.
+    In functia split_dataset permut random exemplele din set, calculez cum trebuie
+    impartit setul cu ajutorul procentului si il impart in 2 seturi corespunzator.
+    In functia initialize_weight calculez epsilon conform formulei si creez o
+    matrice random de elemente care sunt in intervalul (-e,e).
+
+Punctaj local: 91p
+
+Surse:
+    http://math.jacobs-university.de/oliver/teaching/iub/resources/octave/octave-intro/octave-intro.html
+    https://docs.octave.org/v4.4.1/Matrix-Manipulation.html
+    https://docs.octave.org/latest/Simple-File-I_002fO.html
+    https://www.mathworks.com/help/econ/markov-chain-models.html
+    https://www.sachintah.com/post/machinelearning_linear_regression_octave
+    https://docs.octave.org/v4.2.2/Cell-Arrays.html
